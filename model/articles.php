@@ -58,3 +58,9 @@ function validateArticle($params){
 
     return $errors;
 }
+
+function prepareArticleFields(&$params){
+    $params['author'] = htmlspecialchars($params['author']);
+    $params['title'] = htmlspecialchars($params['title']);
+    $params['content'] = htmlspecialchars($params['content']);
+}

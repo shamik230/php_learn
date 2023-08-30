@@ -12,6 +12,7 @@ $category_name = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $params = filterArrayByKeys($_POST, ['category_id', 'title', 'author', 'content']);
     $errors = validateArticle($params);
+    prepareArticleFields($params);
     if (empty($errors)) {
         addArticle($params);
         header('Location: index.php');

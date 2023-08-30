@@ -11,6 +11,7 @@ $categories = getAllCategories();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $params = filterArrayByKeys($_POST, ['category_id', 'title', 'author', 'content']);
+    prepareArticleFields($params);
     $params['article_id'] = $article_id;
     $errors = validateArticle($params);
     if (empty($errors)) {
