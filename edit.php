@@ -6,6 +6,12 @@ include_once('model/categories.php');
 
 $article_id = trim($_GET['id'] ?? '');
 $article = getArticle($article_id);
+if (empty($article)) {
+    header('HTTP/1.1 404 Not Found');
+    include('views/errors/v_404.php');
+    exit();
+}
+
 $errors = [];
 $categories = getAllCategories();
 
