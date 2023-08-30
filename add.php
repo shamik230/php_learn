@@ -10,7 +10,7 @@ $categories = getAllCategories();
 $category_name = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $params = filter_array_by_keys($_POST, ['category_id', 'title', 'author', 'content']);
+    $params = filterArrayByKeys($_POST, ['category_id', 'title', 'author', 'content']);
     $errors = validateArticle($params);
     if (empty($errors)) {
         addArticle($params);
@@ -22,10 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $category_name = $category['name'];
             }
         }
-        remove_duplicate_category($categories, $params['category_id']);
+        removeDuplicateCategory($categories, $params['category_id']);
     }
 } else {
-    $params = filter_array_by_keys($_POST, ['category_id', 'title', 'author', 'content']);
+    $params = filterArrayByKeys($_POST, ['category_id', 'title', 'author', 'content']);
 }
 
 include('views/v_add.php');

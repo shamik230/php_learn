@@ -1,6 +1,6 @@
 <?php
 
-function filter_array_by_keys($target, $keys){
+function filterArrayByKeys($target, $keys){
     $result = [];
     foreach($keys as $key){
         if (array_key_exists($key, $target)) {
