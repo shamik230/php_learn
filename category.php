@@ -6,4 +6,4 @@ $category_id = trim($_GET['id'] ?? '');
 $articles = getArticlesByCategory($category_id);
 $categories = getAllCategories();
 
-include('views/v_category.php');
+include('views/v_index.php');
