@@ -8,16 +8,18 @@ function httpNotFound(){
     exit();
 }
 
-$controllerName = $_GET['c'] ?? 'index';
+// $controllerName = $_GET['c'] ?? 'index';
 
-if(!checkControllerName($controllerName)) {
-    httpNotFound();
-}
+// if(!checkControllerName($controllerName)) {
+//     httpNotFound();
+// }
 
-$controllerPath = "controllers/$controllerName.php";
+// $controllerPath = "controllers/$controllerName.php";
 
-if(!file_exists($controllerPath)){
-    httpNotFound();
-}
+// if(!file_exists($controllerPath)){
+//     httpNotFound();
+// }
 
-include_once($controllerPath);
+// include_once($controllerPath);
+
+$html = template("base/v_main");
