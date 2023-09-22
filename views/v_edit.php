@@ -5,7 +5,7 @@
     }
 </style>
 
-<a href="article.php?id=<?=$article['article_id']?>">Back to Article</a>
+<a href="index.php?c=article&id=<?=$article['article_id']?>">Back to Article</a>
 <hr>    
 <form method="post">
     <label for="cat">Category</label>

@@ -11,4 +11,4 @@
 <pre><?=$article['content']?></pre>
 <p>Author: <?=$article['author']?> /// Category: <?=$article['category_name']?></p>
 <p><i><?=$article['dt_add']?></i> </p>
-<a href="edit.php?id=<?=$article['article_id']?>">Edit</a>
+<a href="index.php?c=edit&id=<?=$article['article_id']?>">Edit</a>
