@@ -2,24 +2,22 @@
 
 include_once("core/system.php");
 
-function httpNotFound(){
+$controllerName = $_GET['c'] ?? 'index';
+
+$pageTitle = "404 Not Found";
+$pageContent = "";
+
+$controllerPath = "controllers/$controllerName.php";
+if (checkControllerName($controllerName) && file_exists($controllerPath)) {
+    include_once($controllerPath);
+} else {
     header('HTTP/1.1 404 Not Found');
-    include('views/errors/v_404.php');
-    exit();
+    $pageContent = template("errors/v_404");
 }
 
-// $controllerName = $_GET['c'] ?? 'index';
+$html = template("base/v_main", [
+    "title" => $pageTitle,
+    "content" => $pageContent,
+]);
 
-// if(!checkControllerName($controllerName)) {
-//     httpNotFound();
-// }
-
-// $controllerPath = "controllers/$controllerName.php";
-
-// if(!file_exists($controllerPath)){
-//     httpNotFound();
-// }
-
-// include_once($controllerPath);
-
-$html = template("base/v_main");
+echo $html;

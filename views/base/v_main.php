@@ -10,7 +10,7 @@
     <header class="site-header">
         <div class="container">
             <div class="logo">
-                <div class="logo__title h3">My site</div>
+                <div class="logo__title h3">Blog</div>
             </div>
         </div>
     </header>

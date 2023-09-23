@@ -29,4 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $params = filterArrayByKeys($_POST, ['category_id', 'title', 'author', 'content']);
 }
 
-include('views/v_add.php');
+$pageTitle = "Add";
+$pageContent = template("v_add", [
+    "params" => $params,
+    "category_name" => $category_name,
+    "categories" => $categories,
+    "errors" => $errors,
+]);
