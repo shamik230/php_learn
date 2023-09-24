@@ -5,8 +5,11 @@ $article_id = trim($_GET['id'] ?? '');
 $article = getArticle($article_id);
 
 if(!empty($article)){
-    include('views/v_article.php');
+    $pageTitle = $article["title"];
+    $pageContent = template("v_article", [
+        "article" => $article,
+    ]);
 } else {
     header('HTTP/1.1 404 Not Found');
-    include('views/errors/v_404.php');
+    $pageContent = template("errors/v_404");
 }

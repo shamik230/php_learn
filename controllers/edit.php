@@ -8,7 +8,7 @@ $article_id = trim($_GET['id'] ?? '');
 $article = getArticle($article_id);
 if (empty($article)) {
     header('HTTP/1.1 404 Not Found');
-    include('views/errors/v_404.php');
+    $pageContent = template("errors/v_404");
     exit();
 }
 
@@ -31,4 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     removeDuplicateCategory($categories, $article['category_id']);
 }
 
-include('views/v_edit.php');
+$pageTitle = $article['title'];
+$pageContent = template("v_edit", [
+    "article" => $article,
+    "categories" => $categories,
+    "errors" => $errors,
+]);
