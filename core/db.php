@@ -1,10 +1,10 @@
 <?php
 
-function dbInstance($db_name){
+function dbInstance(){
     static $id;
 
     if($id === null){
-        $db = new PDO("mysql:host=localhost;dbname=$db_name", 'root', '', [
+        $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS, [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
         $db->exec('SET NAMES UTF8');
@@ -13,8 +13,8 @@ function dbInstance($db_name){
     return $db;
 }
 
-function dbQuery($db_name, $sql, $params = []){
-    $db = dbInstance($db_name);
+function dbQuery($sql, $params = []){
+    $db = dbInstance();
     $query = $db->prepare($sql);
     $query->execute($params);
     dbCheckError($query);

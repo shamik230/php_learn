@@ -1,9 +1,8 @@
 <?php
 
 function getAllCategories(){
-    $db_name = 'hw4';
     $sql = 'SELECT * FROM categories';
-    $query = dbQuery($db_name, $sql);
+    $query = dbQuery($sql);
     return $query->fetchAll();
 }
 
