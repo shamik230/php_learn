@@ -1,7 +1,5 @@
 <?php
 
-include_once('core/db.php');
-
 function getAllCategories(){
     $db_name = 'hw4';
     $sql = 'SELECT * FROM categories';

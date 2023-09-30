@@ -1,9 +1,5 @@
 <?php
 
-include_once('core/arr.php');
-include_once('model/articles.php');
-include_once('model/categories.php');
-
 $article_id = trim($_GET['id'] ?? '');
 $article = getArticle($article_id);
 if (empty($article)) {

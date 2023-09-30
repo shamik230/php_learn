@@ -1,6 +1,6 @@
 <?php
 
-include_once("core/system.php");
+include_once('init.php');
 
 $controllerName = $_GET['c'] ?? 'index';
 

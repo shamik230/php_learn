@@ -1,7 +1,5 @@
 <?php
 
-include_once('core/db.php');
-
 function getAllArticles(){
     $db_name = 'hw4';
     $sql = 'SELECT articles.*, categories.name as category_name FROM articles JOIN categories USING (category_id) ORDER BY dt_add DESC';

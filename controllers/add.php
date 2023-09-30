@@ -1,9 +1,5 @@
 <?php
 
-include_once('core/arr.php');
-include_once('model/articles.php');
-include_once('model/categories.php');
-
 $params = [];
 $errors = [];
 $categories = getAllCategories();
